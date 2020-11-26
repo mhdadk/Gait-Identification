@@ -1,0 +1,6 @@
+*.gz
+*-ubyte
+*.pt
+*.pyc
+*.h5
+*.asv
