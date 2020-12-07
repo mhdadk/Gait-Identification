@@ -1,0 +1,1 @@
+This where the files `data_latent.h5` and `codes.mat` are stored.
