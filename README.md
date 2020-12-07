@@ -1,1 +1,9 @@
-The data for this project was derived from the data in [this](https://ieeexplore.ieee.org/document/9098903) paper.
+# Gait Identification using a Variational Autoencoder and a Hidden Markov Model.
+
+This project demonstrates the use of a Variational Autoencoder (VAE) to generate latent vectors from time-series data that represents the different channels of an inertial measurement unit (IMU), and the use of K-means clustering and a Hidden Markov Model (HMM) to classify these latent vectors. Full details on the project can be found in `report.pdf`. The data for this project was derived from the data in [this](https://ieeexplore.ieee.org/document/9098903) paper.
+
+This (IMU) time-series data can be found [here](https://drive.google.com/file/d/1TMfIhQrUk8K8RO7Q68bluUgfYEOoSfJz/view?usp=sharing). It should be downloaded and saved in the `data` folder. The VAE architecture is shown in `models/VAE.py`. This VAE is used to generate 256-dimensional latent vectors that each encode 6 channels of 160 samples of time-series data. This VAE is trained using `VAE_train_val.py` and tested using `VAE_test.py`, and the latent vectors are sampled using `generate_latent_vectors.py`. The generated latent vectors can be found [here](https://drive.google.com/file/d/1sawmPIl3OeFyi7Y6C9zPvBAMBm-MDXwk/view?usp=sharing).
+
+Since these latent vectors exist in 256-dimensional Euclidean space, they need to be quantized so that a valid joint probability distribution can be estimated. This is done using K-means clustering, as shown in `HMM_train_val.m`. More precisely, they are quantized using 2,048 clusters. These quantized vectors can be found [here](https://drive.google.com/file/d/1J0CwDCOUMSB0ysgEtRfW6HaIZkTSN-MM/view?usp=sharing). They should be downloaded and saved in the `data` folder.
+
+Finally, a HMM is trained using these quantized vectors and their corresponding labels. The theory behind HMM's is detailed in section III in `report.pdf`. The HMM is trained in `HMM_train_val.m` and tested using `HMM_test.m`.
