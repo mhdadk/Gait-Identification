@@ -1,7 +1,9 @@
-% load encoded vectors and labels
+% load HMM parameters and data
 
-load('kmeans_arrays.mat');
-load('labels.mat');
+load('data/codes.mat');
+h5_path = 'data/data_latent.h5';
+y = h5read(h5_path,'/ytrain');
+num_obsv_per_state = 2048;
 
 % train HMM on entire labelled dataset
 

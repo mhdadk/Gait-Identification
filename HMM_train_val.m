@@ -1,6 +1,6 @@
 %% load data
 
-h5_path = 'final_data.h5';
+h5_path = 'data/data_latent.h5';
 x_train = h5read(h5_path,'/xtrain')';
 y = h5read(h5_path,'/ytrain');
 x_unlabelled0 = h5read(h5_path,'/prediction_set0')';
@@ -15,7 +15,7 @@ x = cat(1,x_train,x_unlabelled0,x_unlabelled1,x_unlabelled2,x_unlabelled3);
 % number of possible observations, need to perform k-means clustering to
 % discretize possible observations and make them finite
 
-num_obsv_per_state = 512;
+num_obsv_per_state = 2048;
 [idx,C] = kmeans(x,num_obsv_per_state,...
                  'Display','final',...
                  'Distance','sqeuclidean',...
@@ -31,7 +31,7 @@ idx_unlabelled1 = idx(52073:64342,:);
 idx_unlabelled2 = idx(64343:77282,:);
 idx_unlabelled3 = idx(77283:88612,:);
 
-save('FINALFINAL.mat','idx_labelled','idx_unlabelled0','idx_unlabelled1','idx_unlabelled2','idx_unlabelled3');
+save('data/codes.mat','idx_labelled','idx_unlabelled0','idx_unlabelled1','idx_unlabelled2','idx_unlabelled3');
 
 %% obtain the vector-quantized latent vectors
 
