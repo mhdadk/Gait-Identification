@@ -1,4 +1,4 @@
-# Gait Identification using a Variational Autoencoder and a Hidden Markov Model.
+# Gait Identification using a Variational Autoencoder and a Hidden Markov Model
 
 This project demonstrates the use of a Variational Autoencoder (VAE) to generate latent vectors from time-series data that represents the different channels of an inertial measurement unit (IMU), and the use of K-means clustering and a Hidden Markov Model (HMM) to classify these latent vectors. Full details on the project can be found in `report.pdf`. The data for this project was derived from the data in [this](https://ieeexplore.ieee.org/document/9098903) paper.
 
